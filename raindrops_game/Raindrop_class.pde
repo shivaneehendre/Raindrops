@@ -4,7 +4,7 @@ class Raindrop {
 
   Raindrop() {
     d = 10;
-    loc = new PVector(random(width), 0);
+    loc = new PVector(random(width), random(-height/2,0));
     vel = new PVector(0, random(.5, 1.25));
     acc = new PVector(0, random(.001, .019));
   }
@@ -17,10 +17,12 @@ class Raindrop {
   void move() {
     loc.add(vel);
     vel.add(acc);
-    if (loc.y>height) {
-      loc.y = 0;
-      vel = new PVector(0, random(.5, 1.25));
-    }
+  }
+
+void reset(){
+//  loc.x = random(width);
+ loc.y = random(-height/2,0); 
+ vel = new PVector(0, random(.5, 1.5));
   }
 }
 

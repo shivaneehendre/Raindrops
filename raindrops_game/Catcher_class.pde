@@ -7,4 +7,21 @@ Catcher(){
   d = 30;
 }  
 
+void display(){
+ fill(0);
+ ellipse(loc.x,loc.y,d,d);  
+ }
 
+void update(){
+loc.set(mouseX,height-d); 
+ }
+ 
+boolean catchDrop(Raindrop raindrop){
+ if(dist(loc.x, loc.y, raindrop.loc.x, raindrop.loc.y) < d/2 + raindrop.d/2){
+  return true;
+ } 
+  else {
+    return false;
+  }
+ }
+}
