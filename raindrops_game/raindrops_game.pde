@@ -1,6 +1,5 @@
 Raindrop [] raindrops = new Raindrop[20];
 Catcher catcher;
-int score = 0;
 void setup() {
   size(300, 300);
   for (int i = 0; i < raindrops.length; i++) {
@@ -18,12 +17,9 @@ void draw() {
      }
    if(catcher.catchRain(raindrops[i]) == true){
     raindrops[i].reset();
-    raindrops[i].loc.x = random(width);
-    score++;
     }
   }
     catcher.display();
     catcher.update();
     textSize(30);
-    text(score,10,30);
   }
