@@ -16,7 +16,7 @@ void draw() {
     if(raindrops[i].loc.y > height){
     raindrops[i].reset();
      }
-   if(catcher.catchDrop(raindrops[i]) == true){
+   if(catcher.catchRain(raindrops[i]) == true){
     raindrops[i].reset();
     raindrops[i].loc.x = random(width);
     score++;

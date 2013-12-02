@@ -1,5 +1,7 @@
-color c = color(0);
-int oldTime = 2000;
+//color c = color(128);
+int currentTime = 0;
+int oldTime = 0;
+int timeChange = 0;
 void setup(){
  size(300,300);
  textSize(50);
@@ -7,9 +9,13 @@ void setup(){
 }
 
 void draw(){
-  background(c);
-   text(millis()/1000.0,width/2,height/2); 
-   if(millis()/1000%waitTime == 0){
-    c = color(0,random(255),random(255)); 
-   }
+//  background(c);
+  currentTime = millis();
+  timeChange = currentTime - oldTime;
+  if(timeChange >= 2000){
+    background(0,random(255),random(255));
+//   fill(0,random(255),random(255));
+//   ellipse(random(width),random(height),10,10);
+   oldTime = currentTime;
+  }   
 }

@@ -16,7 +16,7 @@ void update(){
 loc.set(mouseX,height-d); 
  }
  
-boolean catchDrop(Raindrop raindrop){
+boolean catchRain(Raindrop raindrop){
  if(dist(loc.x, loc.y, raindrop.loc.x, raindrop.loc.y) < d/2 + raindrop.d/2){
   return true;
  } 
