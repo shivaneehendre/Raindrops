@@ -2,6 +2,7 @@ class Raindrop {
   PVector loc, vel, acc;
   float d;
 
+//constructor
   Raindrop() {
     d = 10;
     loc = new PVector(random(width), -d);
