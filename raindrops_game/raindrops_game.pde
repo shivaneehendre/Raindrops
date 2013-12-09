@@ -1,25 +1,25 @@
 Raindrop [] raindrops = new Raindrop[500];
 int score = 0;
+int wrong;
+int missed;
 int oldTime = 0;
 int index = 1;
 int threshold = 3000;
-PVector cloudLoc;
-PImage cloud;
 Catcher catcher;
+PVector loc;
+PImage cloud;
 void setup() {
   size(300, 300);
   for (int i = 0; i < raindrops.length; i++) {
     raindrops[i] = new Raindrop(); }
   catcher = new Catcher();
-  //images
-  cloud = loadImage("gray cloud.png");
-  cloudLoc = new PVector(random(width),50);
+   cloud = loadImage("gray cloud1.png");
 }
 
 void draw() {
   background(120);
-  //this calls the display and move functions for raindrops
   for (int i = 0; i < index; i++) {
+//this calls the display and move functions for raindrops
     raindrops[i].display();
     raindrops[i].move();
 //the catcher makes the raindrops go away
@@ -27,9 +27,12 @@ void draw() {
    if(catcher.catchRain(raindrops[i]) == true){
     raindrops[i].noMore();
     score++;
-    threshold -= 50;
+    threshold -= 50; }
+//number of raindrops that are not caught
+    if(raindrops[i].loc.y > height && raindrops[i].loc.y < height + 15){
+     wrong+=1;  
+         }
     }
-  }
   
 //timer and index so that raindrops fall at interval  
   if(millis()-oldTime > threshold){
@@ -38,12 +41,26 @@ void draw() {
     oldTime = millis();
    }
   }
+  
+  
+  
+
+
+
+  //display and move catcher
     catcher.display();
     catcher.update();
   //display score in corner
     textSize(30);
     text(score,10,30);
     fill(255,0,0);
-    //images
-    image(cloud,100,50,cloud.width,cloud.height);
+    text(wrong,width-35,height-15);
+    imageMode(CENTER);
+    image(cloud,75,30,cloud.width,cloud.height);
+    image(cloud,220,30,cloud.width,cloud.height);
+    image(cloud,125,30,cloud.width,cloud.height);
+    image(cloud,160,30,cloud.width,cloud.height);
+    image(cloud,250,30,cloud.width,cloud.height);
+    image(cloud,275,30,cloud.width,cloud.height);
   }
+  
