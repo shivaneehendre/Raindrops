@@ -32,7 +32,7 @@ void reset(){
  
 //raindrops go off screen
 void noMore(){
- loc.set(height*2,0);
+ loc.set(height-60,0);
  vel.set(0,0);
  acc.set(0,0);
  } 
