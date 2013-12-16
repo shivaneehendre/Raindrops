@@ -40,10 +40,14 @@ void draw() {
     score++;
     threshold -= 50; }
 //number of raindrops that are not caught
-    if(raindrops[i].loc.y > height && raindrops[i].loc.y < height + raindrops[i].d/10){
+    if(raindrops[i].loc.y > height && raindrops[i].loc.y < height + raindrops[i].d/5){
      missed--;  
-         }
+        }    
     }
+  if(missed == 0){
+   background(0);
+   text("GAME OVER", width/2, height/2); 
+  }
   
 //timer and index so that raindrops fall at interval  
   if(millis()-oldTime > threshold){
@@ -59,7 +63,8 @@ void draw() {
     textSize(30);
     text(score,10,30);
     fill(255,0,0);
-  println(missed);
+//    text(missed, width-35, height-30);
+    println(missed);
     imageMode(CENTER);
     image(cloud,75,30,cloud.width,cloud.height);
     image(cloud,220,30,cloud.width,cloud.height);
