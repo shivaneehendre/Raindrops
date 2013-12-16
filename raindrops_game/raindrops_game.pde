@@ -1,6 +1,5 @@
 Raindrop [] raindrops = new Raindrop[500];
 int score = 0;
-int wrong;
 int missed;
 int oldTime = 0;
 int index = 1;
@@ -30,7 +29,7 @@ void draw() {
     threshold -= 50; }
 //number of raindrops that are not caught
     if(raindrops[i].loc.y > height && raindrops[i].loc.y < height + 15){
-     wrong+=1;  
+     missed+=1;  
          }
     }
   
@@ -41,12 +40,6 @@ void draw() {
     oldTime = millis();
    }
   }
-  
-  
-  
-
-
-
   //display and move catcher
     catcher.display();
     catcher.update();
@@ -54,7 +47,7 @@ void draw() {
     textSize(30);
     text(score,10,30);
     fill(255,0,0);
-    text(wrong,width-35,height-15);
+  println(missed);
     imageMode(CENTER);
     image(cloud,75,30,cloud.width,cloud.height);
     image(cloud,220,30,cloud.width,cloud.height);
