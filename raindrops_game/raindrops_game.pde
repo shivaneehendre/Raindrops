@@ -1,6 +1,6 @@
 Raindrop [] raindrops = new Raindrop[500];
 int score = 0;
-//int wrong;
+int missed;
 int oldTime = 0;
 int index = 1;
 int threshold = 3000;
@@ -15,7 +15,6 @@ void setup() {
   catcher = new Catcher();
    cloud = loadImage("gray cloud1.png");
    start = false;
-  
 }
 
 void draw() {
@@ -26,6 +25,7 @@ void draw() {
     text("Click to Play!", width/2, height/2); 
    }
   else{
+
   background(120);
   for (int i = 0; i < index; i++) {
 //this calls the display and move functions for raindrops
@@ -38,9 +38,9 @@ void draw() {
     score++;
     threshold -= 50; }
 //number of raindrops that are not caught
-//    if(raindrops[i].loc.y > height && raindrops[i].loc.y < height + 15){
-//     wrong+=1;  
-//         }
+    if(raindrops[i].loc.y > height && raindrops[i].loc.y < height + 15){
+     missed+=1;  
+         }
     }
   
 //timer and index so that raindrops fall at interval  
@@ -57,7 +57,7 @@ void draw() {
     textSize(30);
     text(score,10,30);
     fill(255,0,0);
-//    text(wrong,width-35,height-15);
+  println(missed);
     imageMode(CENTER);
     image(cloud,75,30,cloud.width,cloud.height);
     image(cloud,220,30,cloud.width,cloud.height);
@@ -65,9 +65,9 @@ void draw() {
     image(cloud,160,30,cloud.width,cloud.height);
     image(cloud,250,30,cloud.width,cloud.height);
     image(cloud,275,30,cloud.width,cloud.height);
-   }
   }
-  
-void mousePressed(){
+}
+   void mousePressed(){
  start = true; 
 }
+
