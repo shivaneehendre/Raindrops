@@ -8,6 +8,7 @@ Catcher catcher;
 PVector loc;
 PImage cloud;
 boolean start;
+boolean end;
 void setup() {
   size(300, 300);
   for (int i = 0; i < raindrops.length; i++) {
@@ -15,6 +16,8 @@ void setup() {
   catcher = new Catcher();
    cloud = loadImage("gray cloud1.png");
    start = false;
+   end = false;
+   missed = 3;
 }
 
 void draw() {
@@ -25,7 +28,6 @@ void draw() {
     text("Click to Play!", width/2, height/2); 
    }
   else{
-
   background(120);
   for (int i = 0; i < index; i++) {
 //this calls the display and move functions for raindrops
@@ -38,8 +40,8 @@ void draw() {
     score++;
     threshold -= 50; }
 //number of raindrops that are not caught
-    if(raindrops[i].loc.y > height && raindrops[i].loc.y < height + 15){
-     missed+=1;  
+    if(raindrops[i].loc.y > height && raindrops[i].loc.y < height + raindrops[i].d/10){
+     missed--;  
          }
     }
   
@@ -67,6 +69,7 @@ void draw() {
     image(cloud,275,30,cloud.width,cloud.height);
   }
 }
+
    void mousePressed(){
  start = true; 
 }
