@@ -6,8 +6,7 @@ class Raindrop {
   //constructor
   Raindrop() {
     d = 10;
-    raindrop = loadImage("raindrops1.jpg
-    .png");
+    raindrop = loadImage("raindrops1.jpg.png");
     loc = new PVector(random(width), -d);
     vel = new PVector(0, random(.5, 1.25));
     acc = new PVector(0, random(.001, .019));
@@ -16,7 +15,7 @@ class Raindrop {
   //raindrops are blue circles 
   void display() {
     fill(30, 160, 200);
-    image(raindrop,loc.x,loc.y,d+5,d+5);
+    image(raindrop, loc.x, loc.y, d+5, d+5);
   }
 
   //raindrops move

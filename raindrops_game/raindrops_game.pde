@@ -62,12 +62,11 @@ void draw() {
     textSize(30);
     text(score, 30, 30);
     fill(255, 0, 0);
-//    text(missed, width-35, height-30);
+    text(missed, width-35, height-30);
     println(missed);
     imageMode(CENTER);
     image(cloud, 95, 25, cloud.width, cloud.height);
     image(cloud, 220, 25, cloud.width, cloud.height);
-    image(cloud, 200, 25, cloud.width, cloud.height);
     image(cloud, 125, 25, cloud.width, cloud.height);
     image(cloud, 160, 25, cloud.width, cloud.height);
     image(cloud, 250, 25, cloud.width, cloud.height);
