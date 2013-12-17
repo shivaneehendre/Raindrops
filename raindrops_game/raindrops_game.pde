@@ -7,7 +7,7 @@ int threshold = 3000;
 Catcher catcher;
 PVector loc;
 PImage cloud;
-boolean start;
+boolean start;  
 boolean end;
 void setup() {
   size(300, 300);
@@ -60,17 +60,18 @@ void draw() {
     catcher.update();
     //display score in corner
     textSize(30);
-    text(score, 10, 30);
+    text(score, 30, 30);
     fill(255, 0, 0);
 //    text(missed, width-35, height-30);
     println(missed);
     imageMode(CENTER);
-    image(cloud, 75, 30, cloud.width, cloud.height);
-    image(cloud, 220, 30, cloud.width, cloud.height);
-    image(cloud, 125, 30, cloud.width, cloud.height);
-    image(cloud, 160, 30, cloud.width, cloud.height);
-    image(cloud, 250, 30, cloud.width, cloud.height);
-    image(cloud, 275, 30, cloud.width, cloud.height);
+    image(cloud, 95, 25, cloud.width, cloud.height);
+    image(cloud, 220, 25, cloud.width, cloud.height);
+    image(cloud, 200, 25, cloud.width, cloud.height);
+    image(cloud, 125, 25, cloud.width, cloud.height);
+    image(cloud, 160, 25, cloud.width, cloud.height);
+    image(cloud, 250, 25, cloud.width, cloud.height);
+    image(cloud, 275, 25, cloud.width, cloud.height);
   }
   if (end == true) {
     background(0);

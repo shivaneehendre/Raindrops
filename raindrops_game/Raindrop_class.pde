@@ -6,7 +6,8 @@ class Raindrop {
   //constructor
   Raindrop() {
     d = 10;
-    raindrop = loadImage("raindrops1.png");
+    raindrop = loadImage("raindrops1.jpg
+    .png");
     loc = new PVector(random(width), -d);
     vel = new PVector(0, random(.5, 1.25));
     acc = new PVector(0, random(.001, .019));
