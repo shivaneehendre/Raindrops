@@ -2,7 +2,7 @@ Raindrop [] raindrops = new Raindrop[500];
 int score = 0;
 int missed;
 int oldTime = 0;
-int index = 1;
+int index = 0;
 int threshold = 3000;
 Catcher catcher;
 PVector loc;
@@ -40,7 +40,7 @@ void draw() {
       if (catcher.catchRain(raindrops[i]) == true) {
         raindrops[i].noMore();
         score++;
-        threshold -= 50;
+        threshold -= 75;
       }
       //number of raindrops that are not caught
     }
@@ -60,9 +60,9 @@ void draw() {
     catcher.update();
     //display score in corner
     textSize(30);
-    text(score, 30, 30);
+    text(score, 20, 30);
     fill(255, 0, 0);
-    text("LIVES missed", width-35, height-20);
+    text(missed, width-25, height-20);
     println(missed);
     imageMode(CENTER);
     image(cloud, 95, 25, cloud.width, cloud.height);
