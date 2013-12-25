@@ -76,6 +76,11 @@ void draw() {
     background(0);
     text("GAME OVER", width/2, height/2);
   }
+  if(score == 25){
+   background(25,200,255);
+   textAlign(CENTER);
+   text("YOU WIN!", width/2, height/2); 
+  }
 }
 
 void mousePressed() {
