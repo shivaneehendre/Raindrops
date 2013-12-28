@@ -5,17 +5,21 @@ int oldTime = 0;
 int index = 0;
 int threshold = 3000;
 Catcher catcher;
-PVector loc;
 PImage cloud;
 boolean start;  
 boolean end;
+PImage rain;
+PImage heart; 
 void setup() {
   size(300, 300);
   for (int i = 0; i < raindrops.length; i++) {
     raindrops[i] = new Raindrop();
   }
+  rain = loadImage("rainy background.jpg");
+  size(rain.width,rain.height);
   catcher = new Catcher();
   cloud = loadImage("gray cloud1.png");
+  heart = loadImage("heart1.png");
   start = false;
   end = false;
   missed = 3;
@@ -29,7 +33,7 @@ void draw() {
     text("Click to Play!", width/2, height/2);
   }
   else {
-    background(120);
+    background(rain);
     for (int i = 0; i < index; i++) {
       //this calls the display and move functions for raindrops
       raindrops[i].display();
@@ -42,12 +46,24 @@ void draw() {
         score++;
         threshold -= 75;
       }
-      //number of raindrops that are not caught
-    }
-    if (missed == 0) {
+      if (missed == 0) {
       end = true;
+      raindrops[i].noMore();
+     }
     }
-
+    if(missed == 3){
+    image(heart, width-75, height-30, heart.width, heart.height);
+    image(heart, width-50, height-30, heart.width, heart.height);
+    image(heart, width-25, height-30, heart.width, heart.height);
+    }
+    if (missed == 2){
+    image(heart, width-50, height-30, heart.width, heart.height);
+    image(heart, width-25, height-30, heart.width, heart.height);
+    }
+    if(missed==1){
+    image(heart, width-25, height-30, heart.width, heart.height);
+    }
+   
     //timer and index so that raindrops fall at interval  
     if (millis()-oldTime > threshold) {
       if (index<raindrops.length) {
@@ -60,9 +76,10 @@ void draw() {
     catcher.update();
     //display score in corner
     textSize(30);
+    fill(25,200,150);
     text(score, 20, 30);
     fill(255, 0, 0);
-    text(missed, width-25, height-20);
+//    text(missed, width-25, height-20);
     println(missed);
     imageMode(CENTER);
     image(cloud, 95, 25, cloud.width, cloud.height);
@@ -76,7 +93,7 @@ void draw() {
     background(0);
     text("GAME OVER", width/2, height/2);
   }
-  if(score >= 35){
+  if(score >= 30){
    background(25,200,255);
    textAlign(CENTER);
    text("YOU WIN!", width/2, height/2); 

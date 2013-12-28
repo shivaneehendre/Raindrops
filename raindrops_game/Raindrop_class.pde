@@ -31,7 +31,8 @@ class Raindrop {
     loc.y = random(-height/2, 0); 
     vel = new PVector(0, random(.5, 1.5));
   }
-
+//if they go past the bottom of the screen they are moved
+//the number of lives goes down
   void missed() {
     if (loc.y >= height) {
       missed--;
