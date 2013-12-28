@@ -11,7 +11,6 @@ boolean end;
 PImage rain;
 PImage heart; 
 void setup() {
-  size(300, 300);
   for (int i = 0; i < raindrops.length; i++) {
     raindrops[i] = new Raindrop();
   }
@@ -52,16 +51,16 @@ void draw() {
      }
     }
     if(missed == 3){
-    image(heart, width-75, height-30, heart.width, heart.height);
-    image(heart, width-50, height-30, heart.width, heart.height);
-    image(heart, width-25, height-30, heart.width, heart.height);
+    image(heart, width-85, height-30, 35, 35);
+    image(heart, width-50, height-30, 35, 35);
+    image(heart, width-15, height-30, 35, 35);
     }
     if (missed == 2){
-    image(heart, width-50, height-30, heart.width, heart.height);
-    image(heart, width-25, height-30, heart.width, heart.height);
+    image(heart, width-50, height-30, 35, 35);
+    image(heart, width-15, height-30, 35, 35);
     }
     if(missed==1){
-    image(heart, width-25, height-30, heart.width, heart.height);
+    image(heart, width-15, height-30, 35, 35);
     }
    
     //timer and index so that raindrops fall at interval  
@@ -75,19 +74,22 @@ void draw() {
     catcher.display();
     catcher.update();
     //display score in corner
-    textSize(30);
+    textSize(40);
     fill(25,200,150);
-    text(score, 20, 30);
-    fill(255, 0, 0);
-//    text(missed, width-25, height-20);
+    text(score, 20, 40);
     println(missed);
     imageMode(CENTER);
     image(cloud, 95, 25, cloud.width, cloud.height);
     image(cloud, 220, 25, cloud.width, cloud.height);
     image(cloud, 125, 25, cloud.width, cloud.height);
-    image(cloud, 160, 25, cloud.width, cloud.height);
+    image(cloud, 360, 25, cloud.width, cloud.height);
     image(cloud, 250, 25, cloud.width, cloud.height);
     image(cloud, 275, 25, cloud.width, cloud.height);
+    image(cloud, 295, 25, cloud.width, cloud.height);
+    image(cloud, 345, 25, cloud.width, cloud.height);
+    image(cloud, 310, 25, cloud.width, cloud.height);
+    image(cloud, 190, 25, cloud.width, cloud.height);
+    image(cloud, 390, 25, cloud.width, cloud.height);
   }
   if (end == true) {
     background(0);
