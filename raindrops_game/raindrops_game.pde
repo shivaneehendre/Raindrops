@@ -95,9 +95,10 @@ void draw() {
     background(0);
     text("GAME OVER", width/2, height/2);
   }
-  if(score >= 30){
-   background(25,200,255);
+  if(score >= 3){
+   background(25,100,125);
    textAlign(CENTER);
+   fill(0);
    text("YOU WIN!", width/2, height/2); 
   }
 }
