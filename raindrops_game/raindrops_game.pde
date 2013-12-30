@@ -9,6 +9,7 @@ PImage cloud;
 boolean start;  
 boolean end;
 PImage rain;
+boolean win;
 PImage heart; 
 void setup() {
   for (int i = 0; i < raindrops.length; i++) {
@@ -21,6 +22,7 @@ void setup() {
   heart = loadImage("heart1.png");
   start = false;
   end = false;
+  win = false;
   missed = 3;
 }
 
@@ -30,8 +32,10 @@ void draw() {
     textSize(40);
     textAlign(CENTER);
     text("Click to Play!", width/2, height/2);
+    if(mousePressed== true){
+      start = true; }
   }
-  else {
+  if(start == true){
     background(rain);
     for (int i = 0; i < index; i++) {
       //this calls the display and move functions for raindrops
@@ -45,9 +49,8 @@ void draw() {
         score++;
         threshold -= 75;
       }
-      if (missed == 0) {
+      if (missed <= 0) {
       end = true;
-      raindrops[i].noMore();
      }
     }
     if(missed == 3){
@@ -94,16 +97,28 @@ void draw() {
   if (end == true) {
     background(0);
     text("GAME OVER", width/2, height/2);
-  }
+    for (int i = 0; i < index; i++) {
+         raindrops[i].noMore();}
+    fill(255);
+    textSize(25);
+    text("TRY AGAIN", width/2 -40, height/2 + 53);
+    fill(25,100,175);
+    rect(width/2-75, height/2+50, 150, 50); }
+    
+    if(end = true && mousePressed == true && mouseX>width/2 -50 && mouseX<width/2 +50 && mouseY>height/2 + 50 && mouseY < height/2 + 100){
+       start = true;
+       missed = 3;
+       score = 0;
+     }
   if(score >= 3){
+    win = true;  
+ if(win = true){  
    background(25,100,125);
    textAlign(CENTER);
+   textSize(40);
    fill(0);
    text("YOU WIN!", width/2, height/2); 
   }
-}
-
-void mousePressed() {
-  start = true;
+  }
 }
 
