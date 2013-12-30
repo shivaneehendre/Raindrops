@@ -36,6 +36,7 @@ void draw() {
       start = true; }
   }
   if(start == true){
+    end = false;
     background(rain);
     for (int i = 0; i < index; i++) {
       //this calls the display and move functions for raindrops
@@ -99,15 +100,17 @@ void draw() {
     text("GAME OVER", width/2, height/2);
     for (int i = 0; i < index; i++) {
          raindrops[i].noMore();}
+    fill(25,100,175);
+    rect(width/2-75, height/2+25, 150, 50);
     fill(255);
     textSize(25);
-    text("TRY AGAIN", width/2 -40, height/2 + 53);
-    fill(25,100,175);
-    rect(width/2-75, height/2+50, 150, 50); }
+    textAlign(CENTER);
+    text("TRY AGAIN", width/2, height/2 + 50); }
     
-    if(end = true && mousePressed == true && mouseX>width/2 -50 && mouseX<width/2 +50 && mouseY>height/2 + 50 && mouseY < height/2 + 100){
+    if(end == true && mousePressed == true && mouseX>width/2 -50 && mouseX<width/2 +50 && mouseY>height/2 + 25 && mouseY < height/2 + 75){
        start = true;
        missed = 3;
+       index = 1;
        score = 0;
      }
   if(score >= 3){
