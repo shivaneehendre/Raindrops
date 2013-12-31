@@ -5,19 +5,24 @@ int oldTime = 0;
 int index = 0;
 int threshold = 3000;
 Catcher catcher;
-PVector loc;
 PImage cloud;
 boolean start;  
 boolean end;
+PImage rain;
+boolean win;
+PImage heart; 
 void setup() {
-  size(300, 300);
   for (int i = 0; i < raindrops.length; i++) {
     raindrops[i] = new Raindrop();
   }
+  rain = loadImage("rainy background.jpg");
+  size(rain.width,rain.height);
   catcher = new Catcher();
   cloud = loadImage("gray cloud1.png");
+  heart = loadImage("heart1.png");
   start = false;
   end = false;
+  win = false;
   missed = 3;
 }
 
@@ -27,9 +32,12 @@ void draw() {
     textSize(40);
     textAlign(CENTER);
     text("Click to Play!", width/2, height/2);
+    if(mousePressed== true){
+      start = true; }
   }
-  else {
-    background(120);
+  if(start == true){
+    end = false;
+    background(rain);
     for (int i = 0; i < index; i++) {
       //this calls the display and move functions for raindrops
       raindrops[i].display();
@@ -42,12 +50,23 @@ void draw() {
         score++;
         threshold -= 75;
       }
-      //number of raindrops that are not caught
-    }
-    if (missed == 0) {
+      if (missed <= 0) {
       end = true;
+     }
     }
-
+    if(missed == 3){
+    image(heart, width-85, height-30, 35, 35);
+    image(heart, width-50, height-30, 35, 35);
+    image(heart, width-15, height-30, 35, 35);
+    }
+    if (missed == 2){
+    image(heart, width-50, height-30, 35, 35);
+    image(heart, width-15, height-30, 35, 35);
+    }
+    if(missed==1){
+    image(heart, width-15, height-30, 35, 35);
+    }
+   
     //timer and index so that raindrops fall at interval  
     if (millis()-oldTime > threshold) {
       if (index<raindrops.length) {
@@ -59,26 +78,65 @@ void draw() {
     catcher.display();
     catcher.update();
     //display score in corner
-    textSize(30);
-    text(score, 20, 30);
-    fill(255, 0, 0);
-    text(missed, width-25, height-20);
+    textSize(40);
+    fill(25,200,150);
+    text(score, 20, 40);
     println(missed);
     imageMode(CENTER);
-    image(cloud, 95, 25, cloud.width, cloud.height);
+    image(cloud,  95, 25, cloud.width, cloud.height);
     image(cloud, 220, 25, cloud.width, cloud.height);
-    image(cloud, 160, 25, cloud.width, cloud.height);
+    image(cloud, 125, 25, cloud.width, cloud.height);
+    image(cloud, 360, 25, cloud.width, cloud.height);
     image(cloud, 250, 25, cloud.width, cloud.height);
     image(cloud, 275, 25, cloud.width, cloud.height);
-    image(cloud, 125, 25, cloud.width, cloud.height);
+    image(cloud, 295, 25, cloud.width, cloud.height);
+    image(cloud, 345, 25, cloud.width, cloud.height);
+    image(cloud, 310, 25, cloud.width, cloud.height);
+    image(cloud, 190, 25, cloud.width, cloud.height);
+    image(cloud, 390, 25, cloud.width, cloud.height);
   }
   if (end == true) {
     background(0);
     text("GAME OVER", width/2, height/2);
+    fill(25,100,175);
+    rect(width/2-75, height/2+25, 150, 50);
+    fill(255);
+    textSize(25);
+    textAlign(CENTER);
+    text("TRY AGAIN", width/2, height/2 + 60); }
+    
+    if(end == true && mousePressed == true && mouseX>width/2 -70 && mouseX<width/2 +70 && mouseY>height/2 + 25 && mouseY < height/2 + 75){
+       end = false;
+       start = true;
+       missed = 3;
+       index = 1;
+       score = 0;
+     }
+  if(score >= 5){
+    win = true;  
+ if(win = true){ 
+   background(25,100,125);
+   textAlign(CENTER);
+   textSize(40);
+   fill(0);
+   text("YOU WIN!", width/2, height/2); 
+//   for (int i = 0; i < index; i++) {
+//         raindrops[i].noMore();}
+    fill(25,150,175);
+    rect(width/2-75, height/2+25, 150, 50);
+    fill(255);
+    textSize(25);
+    textAlign(CENTER);
+    text("PLAY AGAIN", width/2, height/2 + 60);
+ }
   }
-}
-
-void mousePressed() {
-  start = true;
+    if(win == true && mousePressed == true && mouseX>width/2 -50 && mouseX<width/2 +50 && mouseY>height/2 + 25 && mouseY < height/2 + 75){
+    win = false;
+    start = true;
+    missed = 3;
+    index = 1;
+    score = 0;
+    threshold = 3000;
+     }
 }
 
