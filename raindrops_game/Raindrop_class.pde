@@ -7,11 +7,7 @@ class Raindrop {
   Raindrop() {
     d = 10;
     raindrop = loadImage("raindrops1.jpg.png");
-<<<<<<< HEAD
-    loc = new PVector(random(10,280), 0);
-=======
-    loc = new PVector(random(2,280), 0);
->>>>>>> origin/Game-Over-Screen
+    loc = new PVector(random(10,285), 0);
     vel = new PVector(0, random(.5, 1.25));
     acc = new PVector(0, random(.001, .019));
   }
@@ -46,7 +42,7 @@ class Raindrop {
 
   //raindrops go off screen
   void noMore() {
-    loc.set(height*2, 0);
+    loc.set(width*2, 0);
     vel.set(0, 0);
     acc.set(0, 0);
   }
