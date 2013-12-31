@@ -10,7 +10,7 @@ boolean start;
 boolean end;
 PImage rain;
 boolean win;
-PImage heart; 
+PImage heart;
 void setup() {
   for (int i = 0; i < raindrops.length; i++) {
     raindrops[i] = new Raindrop();
@@ -83,7 +83,7 @@ void draw() {
     text(score, 20, 40);
     println(missed);
     imageMode(CENTER);
-    image(cloud, 095, 25, cloud.width, cloud.height);
+    image(cloud,  95, 25, cloud.width, cloud.height);
     image(cloud, 220, 25, cloud.width, cloud.height);
     image(cloud, 125, 25, cloud.width, cloud.height);
     image(cloud, 360, 25, cloud.width, cloud.height);
@@ -106,15 +106,14 @@ void draw() {
     textAlign(CENTER);
     text("TRY AGAIN", width/2, height/2 + 60); }
     
-    if(end == true && mousePressed == true && mouseX>width/2 -50 && mouseX<width/2 +50 && mouseY>height/2 + 25 && mouseY < height/2 + 75){
+    if(end == true && mousePressed == true && mouseX>width/2 -75 && mouseX<width/2 +75 && mouseY>height/2 + 25 && mouseY < height/2 + 75){
        end = false;
        start = true;
        missed = 3;
        index = 1;
        score = 0;
-       threshold = 3000;
      }
-  if(score >= 5){
+  if(score >= 30){
     win = true;  
  if(win = true){  
    background(25,100,125);
@@ -132,5 +131,12 @@ void draw() {
     text("PLAY AGAIN", width/2, height/2 + 60);
   }
   }
+  if(win == true && mousePressed == true && mouseX>width/2 -50 && mouseX<width/2 +50 && mouseY>height/2 + 25 && mouseY < height/2 + 75){
+       win = false;
+       start = true;
+       missed = 3;
+       index = 1;
+       score = 0;
+     }
 }
 

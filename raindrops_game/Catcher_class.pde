@@ -1,9 +1,11 @@
 class Catcher {
   PVector loc;
+  PImage bucket;
   int d;
 
   //constructor
   Catcher() {
+    bucket = loadImage("bucket.png");
     loc = new PVector(mouseX, height-d);
     d = 30;
   }  
@@ -11,7 +13,7 @@ class Catcher {
   //display catcher
   void display() {
     fill(255);
-    ellipse(loc.x, loc.y, d, d);
+    image(bucket, loc.x, loc.y, d+10, d+10);
   }
 
   //so that the catcher moves
