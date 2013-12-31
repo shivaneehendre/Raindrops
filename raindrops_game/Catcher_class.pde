@@ -10,7 +10,7 @@ class Catcher {
     d = 30;
   }  
 
-  //display catcher
+  //display catcher (which is a bucket) 
   void display() {
     fill(255);
     image(bucket, loc.x, loc.y, d+10, d+10);

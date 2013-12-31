@@ -1,4 +1,5 @@
 class Raindrop {
+  //declaring everything 
   PVector loc, vel, acc;
   float d;
   PImage raindrop;
@@ -12,13 +13,13 @@ class Raindrop {
     acc = new PVector(0, random(.001, .019));
   }
 
-  //raindrops are blue circles 
+  //raindrops are raindrop pictures that fall 
   void display() {
     fill(30, 160, 200);
     image(raindrop, loc.x, loc.y, d+5, d+5);
   }
 
-  //raindrops move
+  //raindrops move in a downward fashion
   void move() {
     loc.add(vel);
     vel.add(acc);
@@ -31,8 +32,10 @@ class Raindrop {
     loc.y = random(-height/2, 0); 
     vel = new PVector(0, random(.5, 1.5));
   }
-//if they go past the bottom of the screen they are moved
-//the number of lives goes down
+  
+//if they go past the bottom of the screen
+//the number of lives goes down and they go to the side
+//and if a lot of them fall then the person loses
   void missed() {
     if (loc.y >= height) {
       missed--;
@@ -40,7 +43,8 @@ class Raindrop {
     }
   }
 
-  //raindrops go off screen
+  //raindrops go off to side
+  //this is called both when they are caught and when they are not
   void noMore() {
     loc.set(width*2, 0);
     vel.set(0, 0);
