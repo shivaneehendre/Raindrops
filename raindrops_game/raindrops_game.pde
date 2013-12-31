@@ -10,7 +10,11 @@ boolean start;
 boolean end;
 PImage rain;
 boolean win;
+<<<<<<< HEAD
 PImage heart; 
+=======
+PImage heart;
+>>>>>>> origin/Game-Over-Screen
 void setup() {
   for (int i = 0; i < raindrops.length; i++) {
     raindrops[i] = new Raindrop();
@@ -96,6 +100,10 @@ void draw() {
     image(cloud, 390, 25, cloud.width, cloud.height);
   }
   if (end == true) {
+<<<<<<< HEAD
+=======
+    start = false;
+>>>>>>> origin/Game-Over-Screen
     background(0);
     text("GAME OVER", width/2, height/2);
     fill(25,100,175);
@@ -105,16 +113,26 @@ void draw() {
     textAlign(CENTER);
     text("TRY AGAIN", width/2, height/2 + 60); }
     
+<<<<<<< HEAD
     if(end == true && mousePressed == true && mouseX>width/2 -70 && mouseX<width/2 +70 && mouseY>height/2 + 25 && mouseY < height/2 + 75){
+=======
+    if(end == true && mousePressed == true && mouseX>width/2 -75 && mouseX<width/2 +75 && mouseY>height/2 + 25 && mouseY < height/2 + 75){
+>>>>>>> origin/Game-Over-Screen
        end = false;
        start = true;
        missed = 3;
        index = 1;
        score = 0;
      }
+<<<<<<< HEAD
   if(score >= 5){
     win = true;  
  if(win = true){ 
+=======
+  if(score >= 30){
+    win = true;  
+ if(win = true){  
+>>>>>>> origin/Game-Over-Screen
    background(25,100,125);
    textAlign(CENTER);
    textSize(40);
@@ -128,6 +146,7 @@ void draw() {
     textSize(25);
     textAlign(CENTER);
     text("PLAY AGAIN", width/2, height/2 + 60);
+<<<<<<< HEAD
  }
   }
     if(win == true && mousePressed == true && mouseX>width/2 -50 && mouseX<width/2 +50 && mouseY>height/2 + 25 && mouseY < height/2 + 75){
@@ -137,6 +156,16 @@ void draw() {
     index = 1;
     score = 0;
     threshold = 3000;
+=======
+  }
+  }
+  if(win == true && mousePressed == true && mouseX>width/2 -50 && mouseX<width/2 +50 && mouseY>height/2 + 25 && mouseY < height/2 + 75){
+       win = false;
+       start = true;
+       missed = 3;
+       index = 1;
+       score = 0;
+>>>>>>> origin/Game-Over-Screen
      }
 }
 

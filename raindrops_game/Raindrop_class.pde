@@ -7,7 +7,11 @@ class Raindrop {
   Raindrop() {
     d = 10;
     raindrop = loadImage("raindrops1.jpg.png");
+<<<<<<< HEAD
     loc = new PVector(random(10,280), 0);
+=======
+    loc = new PVector(random(2,280), 0);
+>>>>>>> origin/Game-Over-Screen
     vel = new PVector(0, random(.5, 1.25));
     acc = new PVector(0, random(.001, .019));
   }
