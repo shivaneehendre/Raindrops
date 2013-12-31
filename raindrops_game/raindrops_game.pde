@@ -28,7 +28,7 @@ void setup() {
 
 void draw() {
   if (start == false) {
-    background(60, 100, 200);
+    background(80, 40, 113);
     textSize(40);
     textAlign(CENTER);
     text("Click to Play!", width/2, height/2);
@@ -98,14 +98,14 @@ void draw() {
   }
   if (end == true) {
     start = false;
-    background(0);
+    background(10);
     text("GAME OVER", width/2, height/2);
-    fill(25,100,175);
+    fill(235,100,175);
     rect(width/2-75, height/2+25, 150, 50);
-    fill(255);
+    fill(0);
     textSize(25);
     textAlign(CENTER);
-    text("TRY AGAIN", width/2, height/2 + 60); }
+    text("TRY AGAIN", width/2, height/2 + 58); }
     
     if(end == true && mousePressed == true && mouseX>width/2 -75 && mouseX<width/2 +75 && mouseY>height/2 + 25 && mouseY < height/2 + 75){
        end = false;
@@ -117,16 +117,16 @@ void draw() {
   if(score >= 30){
     win = true; 
  if(win = true){ 
-   background(25,100,125);
+   background(105,45,102);
    textAlign(CENTER);
    textSize(40);
-   fill(0);
+   fill(255);
    text("YOU WIN!", width/2, height/2); 
    for (int i = 0; i < index; i++) {
          raindrops[i].noMore();}
     fill(25,150,175);
     rect(width/2-75, height/2+25, 150, 50);
-    fill(255);
+    fill(0);
     textSize(25);
     textAlign(CENTER);
     text("PLAY AGAIN", width/2, height/2 + 60);  
