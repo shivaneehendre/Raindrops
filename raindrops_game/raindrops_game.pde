@@ -83,7 +83,7 @@ void draw() {
     text(score, 20, 40);
     println(missed);
     imageMode(CENTER);
-    image(cloud, 95, 25, cloud.width, cloud.height);
+    image(cloud, 095, 25, cloud.width, cloud.height);
     image(cloud, 220, 25, cloud.width, cloud.height);
     image(cloud, 125, 25, cloud.width, cloud.height);
     image(cloud, 360, 25, cloud.width, cloud.height);
@@ -96,24 +96,25 @@ void draw() {
     image(cloud, 390, 25, cloud.width, cloud.height);
   }
   if (end == true) {
+    start = false;
     background(0);
     text("GAME OVER", width/2, height/2);
-    for (int i = 0; i < index; i++) {
-         raindrops[i].noMore();}
     fill(25,100,175);
     rect(width/2-75, height/2+25, 150, 50);
     fill(255);
     textSize(25);
     textAlign(CENTER);
-    text("TRY AGAIN", width/2, height/2 + 50); }
+    text("TRY AGAIN", width/2, height/2 + 60); }
     
     if(end == true && mousePressed == true && mouseX>width/2 -50 && mouseX<width/2 +50 && mouseY>height/2 + 25 && mouseY < height/2 + 75){
+       end = false;
        start = true;
        missed = 3;
        index = 1;
        score = 0;
+       threshold = 3000;
      }
-  if(score >= 3){
+  if(score >= 5){
     win = true;  
  if(win = true){  
    background(25,100,125);
@@ -121,6 +122,14 @@ void draw() {
    textSize(40);
    fill(0);
    text("YOU WIN!", width/2, height/2); 
+//   for (int i = 0; i < index; i++) {
+//         raindrops[i].noMore();}
+    fill(25,150,175);
+    rect(width/2-75, height/2+25, 150, 50);
+    fill(255);
+    textSize(25);
+    textAlign(CENTER);
+    text("PLAY AGAIN", width/2, height/2 + 60);
   }
   }
 }
